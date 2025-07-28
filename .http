@@ -1,0 +1,33 @@
+# board
+
+# 게시글 전체 가져오기
+GET http://localhost:3005/board
+###
+
+# 게시글 하나 가져오기
+GET http://localhost:3005/board/1
+###
+
+# 게시글 생성
+POST http://localhost:3005/board
+Content-Type: application/json
+
+{
+  "title": "test 생성",
+  "content": "test 생성"
+}
+###
+
+# 게시글 수정
+PUT http://localhost:3005/board/1
+Content-Type: application/json
+
+{
+  "title": "test 수정2",
+  "content": "test 수정2"
+}
+###
+
+# 게시글 삭제
+DELETE http://localhost:3005/board/1
+###
