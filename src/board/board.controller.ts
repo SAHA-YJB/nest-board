@@ -9,9 +9,15 @@ import {
   Put,
   ValidationPipe,
 } from '@nestjs/common';
+import {
+  ApiBody,
+  ApiOperation,
+  ApiParam,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { BoardService } from './board.service';
 import { Board } from './boards.mock.data';
-import { ApiBody, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
 
@@ -51,6 +57,8 @@ export class BoardController {
     return this.boardService.update(boardId, boardData);
   }
 
+  @ApiOperation({ summary: '게시글 삭제' })
+  @ApiParam({ name: 'boardId', type: Number, description: '게시글 ID' })
   @Delete(':boardId')
   delete(@Param('boardId', ParseIntPipe) boardId: number) {
     return this.boardService.delete(boardId);

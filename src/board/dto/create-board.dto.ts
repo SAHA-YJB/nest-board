@@ -4,6 +4,7 @@ import { IsNotEmpty, MaxLength, MinLength } from 'class-validator';
 export class CreateBoardDto {
   @ApiProperty({
     description: '게시글 제목',
+    required: true,
     example: '게시글 제목입니다.',
     minLength: 2,
     maxLength: 20,
@@ -15,6 +16,7 @@ export class CreateBoardDto {
 
   @ApiProperty({
     description: '게시글 내용',
+    required: true,
     example: '게시글 내용입니다.',
   })
   @IsNotEmpty()
