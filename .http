@@ -23,8 +23,7 @@ PUT http://localhost:3005/board/1
 Content-Type: application/json
 
 {
-  "title": "test 수정2",
-  "content": "test 수정2"
+  "title": "test 수정2"
 }
 ###
 

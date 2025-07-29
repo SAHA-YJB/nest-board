@@ -1,5 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Board, mockBoards } from './boards.mock.data';
+import { CreateBoardDto } from './dto/create-board.dto';
+import { UpdateBoardDto } from './dto/update-board.dto';
 
 @Injectable()
 export class BoardService {
@@ -21,13 +23,13 @@ export class BoardService {
     return board;
   }
 
-  create(boardData: Board): Board {
+  create(boardData: CreateBoardDto) {
     const newBoard = { ...boardData, id: this.getNextId() };
     this.boards = [newBoard, ...this.boards];
     return newBoard;
   }
 
-  update(boardId: number, boardData: Board): Board {
+  update(boardId: number, boardData: UpdateBoardDto) {
     const board = this.findOne(boardId);
     if (!board) {
       throw new NotFoundException(`Board with ID ${boardId} not found`);
