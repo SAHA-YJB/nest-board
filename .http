@@ -1,5 +1,9 @@
 # board
 
+# 로그 테스트
+GET http://localhost:3005/
+###
+
 # 게시글 전체 가져오기
 GET http://localhost:3005/board
 ###
